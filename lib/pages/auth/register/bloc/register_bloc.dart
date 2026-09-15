@@ -1,6 +1,5 @@
 import 'package:arena/models/enums/enums.dart';
 import 'package:arena/repositories/auth/auth_repository.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'register_event.dart';
 import 'register_state.dart';

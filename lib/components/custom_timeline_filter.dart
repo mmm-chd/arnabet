@@ -1,4 +1,4 @@
-﻿import 'package:arena/components/custom_spacing.dart';
+import 'package:arena/components/custom_spacing.dart';
 import 'package:arena/components/custom_text.dart';
 import 'package:arena/components/custom_timeline_item.dart';
 import 'package:arena/pages/dashboard/owner/components/custom_calendar_bottom_sheet.dart';
@@ -67,7 +67,7 @@ class CustomTimelineFilter extends StatelessWidget {
                                 children: [
                                   CustomText(
                                     text:
-                                        "${startDate!.toIso8601String().split('T').first}",
+                                        startDate!.toIso8601String().split('T').first,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium
@@ -83,7 +83,7 @@ class CustomTimelineFilter extends StatelessWidget {
                                   ),
                                   CustomText(
                                     text:
-                                        "${endDate!.toIso8601String().split('T').first}",
+                                        endDate!.toIso8601String().split('T').first,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium

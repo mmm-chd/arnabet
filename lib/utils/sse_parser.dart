@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 
 extension SseParser on Stream<String> {
   Stream<Map<String, dynamic>> parseSseData() async* {

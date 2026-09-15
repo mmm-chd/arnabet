@@ -20,7 +20,7 @@ class GreetingHeader extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),
-        const CurrentUserAvatar(),
+        CurrentUserAvatar(),
       ],
     );
   }

@@ -25,7 +25,7 @@ class DateInputFormatter extends TextInputFormatter {
     int cursorPos = 0;
 
     // Day (dd)
-    if (digitsOnly.length >= 1) {
+    if (digitsOnly.isNotEmpty) {
       formatted += digitsOnly[0];
       cursorPos = 1;
     }

@@ -1,6 +1,5 @@
 import 'package:arena/utils/app_secure_storage.dart';
 import 'package:arena/utils/app_shared_preferances.dart';
-import 'package:flutter/foundation.dart';
 
 class SessionManager {
   static const _accessToken = 'access_token';

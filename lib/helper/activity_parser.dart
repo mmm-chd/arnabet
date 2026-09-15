@@ -1,4 +1,3 @@
-import 'package:arena/models/enums/enums.dart';
 
 String parseActivity(String? activity) {
   if (activity == null || activity.trim().isEmpty) return '-';

@@ -274,6 +274,7 @@ void _showDeleteConfirm(BuildContext context, JasaBloc bloc, Datum service) {
     onPressed: () {
       bloc.add(DeleteService(id: service.id ?? 0));
       context.pop();
+      return null;
     },
     children: [
       CustomText(

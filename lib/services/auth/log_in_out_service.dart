@@ -5,7 +5,6 @@ import 'package:arena/utils/app_secure_storage.dart';
 import 'package:arena/utils/extract_server_message.dart';
 import 'package:arena/utils/session_manager.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 class LogInOutService {
   static const _loginPath = ConstantApi.login;

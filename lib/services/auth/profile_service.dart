@@ -68,12 +68,10 @@ class ProfileService {
       final statusCode = e.response?.statusCode;
       final serverMessage = extractServerMessage(e);
       final cachedProfile = await AppSharedPreferances.read("cached_profile");
-      if (cachedProfile != null) {
-        try {
-          return ProfileModel.fromJson(jsonDecode(cachedProfile));
-        } catch (_) {}
-      }
-      if (e.type == DioExceptionType.connectionTimeout ||
+      try {
+        return ProfileModel.fromJson(jsonDecode(cachedProfile));
+      } catch (_) {}
+          if (e.type == DioExceptionType.connectionTimeout ||
           e.type == DioExceptionType.receiveTimeout ||
           e.type == DioExceptionType.sendTimeout) {
         throw Exception('Waktu koneksi habis');
@@ -88,12 +86,10 @@ class ProfileService {
       );
     } catch (e) {
       final cachedProfile = await AppSharedPreferances.read("cached_profile");
-      if (cachedProfile != null) {
-        try {
-          return ProfileModel.fromJson(jsonDecode(cachedProfile));
-        } catch (_) {}
-      }
-      throw Exception(e.toString().replaceAll("Exception: ", ""));
+      try {
+        return ProfileModel.fromJson(jsonDecode(cachedProfile));
+      } catch (_) {}
+          throw Exception(e.toString().replaceAll("Exception: ", ""));
     }
   }
 }

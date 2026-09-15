@@ -145,8 +145,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final result = await authRepository.login(_email.trim(), _password);
       final userRole = Role.fromString(result.data!.user!.role);
 
-      if (userRole == null) throw Exception('Role tidak dikenali');
-
       emit(
         state.copyWith(
           status: PageStatus.success,

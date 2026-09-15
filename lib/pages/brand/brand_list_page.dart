@@ -152,6 +152,7 @@ class _BrandListPageState extends State<BrandListPage> {
           );
           Navigator.pop(context);
         }
+        return null;
       },
       children: [
         CustomTextField(
@@ -177,6 +178,7 @@ class _BrandListPageState extends State<BrandListPage> {
           context.read<BrandBloc>().add(AddBrand(name: controller.text));
           Navigator.pop(context);
         }
+        return null;
       },
       children: [
         CustomTextField(

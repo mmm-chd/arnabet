@@ -1,6 +1,5 @@
 import 'package:arena/models/product/product_list_model.dart';
 import 'package:arena/repositories/product/product_repository.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'product_list_event.dart';

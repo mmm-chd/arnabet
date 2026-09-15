@@ -1,6 +1,5 @@
 import 'package:arena/models/enums/enums.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 class ApiErrorHandler {
   static void handlePageState({

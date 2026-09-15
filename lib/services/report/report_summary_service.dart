@@ -3,7 +3,6 @@ import 'package:arena/config/network/constant_api.dart';
 import 'package:arena/models/report/summary_report_model.dart';
 import 'package:arena/utils/extract_server_message.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
 class ReportSummaryService {
@@ -23,15 +22,12 @@ class ReportSummaryService {
         queryParameters["end_date"] = DateFormat("yyyy-MM-dd").format(endDate);
       }
 
-      final t0 = DateTime.now();
       final response = await Client.dio.get(
         _summaryPath,
         queryParameters: queryParameters,
         options: Options(responseType: ResponseType.plain),
       );
-      final t1 = DateTime.now();
       final body = parseReportSummary(response.data as String);
-      final t2 = DateTime.now();
       if (body.success == true) {
         return body;
       } else {

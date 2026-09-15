@@ -117,7 +117,7 @@ class _ChartContent extends StatelessWidget {
         ? 0
         : values.reduce((a, b) => a < b ? a : b).toDouble();
 
-    double _calcInterval(double maxY) {
+    double calcInterval(double maxY) {
       if (maxY <= 0) return 10;
       final raw = maxY / 5;
       final magnitude = math
@@ -141,7 +141,7 @@ class _ChartContent extends StatelessWidget {
     final double chartMaxY = maxValue > 0
         ? maxValue * 1.2
         : (minValue < 0 ? 0 : 50.0);
-    final double gridInterval = _calcInterval(chartMaxY - chartMinY);
+    final double gridInterval = calcInterval(chartMaxY - chartMinY);
     return CustomSpacing(
       height: 250,
       child: Stack(
