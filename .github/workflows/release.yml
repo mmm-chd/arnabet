@@ -1,0 +1,57 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.35.7"
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        continue-on-error: true
+        run: flutter analyze
+
+      - name: Run tests
+        continue-on-error: true
+        run: flutter test
+
+      - name: Build APK
+        run: |
+          flutter build apk --release \
+            --dart-define=API_URL=${{ secrets.API_URL }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install Semantic Release
+        run: |
+          npm install -D \
+            semantic-release \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator \
+            @semantic-release/changelog \
+            @semantic-release/github \
+            @semantic-release/git
+
+      - name: Create Release & Upload APK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
